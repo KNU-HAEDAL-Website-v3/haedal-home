@@ -83,7 +83,7 @@ export function Stats() {
         .stats__title {
           max-width: 38rem;
           margin: 0;
-          font-size: clamp(1.5rem, 1.5vw, 2rem);
+          font-size: clamp(4rem, 4.5vw, 5.5rem);
           font-weight: 650;
           line-height: 1.32;
           letter-spacing: -0.045em;
@@ -112,10 +112,10 @@ export function Stats() {
         .stats__label {
           display: flex;
           align-items: center;
-          gap: clamp(0.625rem, 0.8vw, 0.875rem);
+          gap: clamp(1.125rem, 1.25vw, 1.5rem);
           margin: 0;
           color: #13202c;
-          font-size: clamp(0.875rem, 0.85vw, 1.125rem);
+          font-size: clamp(1.125rem, 1.25vw, 1.5rem);
           font-weight: 700;
           line-height: 1.35;
           letter-spacing: -0.02em;
@@ -157,22 +157,7 @@ export function Stats() {
           letter-spacing: -0.06em;
         }
 
-        .stats__marker {
-          display: inline-grid;
-          place-items: center;
-          width: clamp(1.5rem, 1.8vw, 2.125rem);
-          height: clamp(1.5rem, 1.8vw, 2.125rem);
-          margin-right: 0.2em;
-          border-radius: 5px;
-          background: #f0f2f2;
-          transform: translateY(-0.12em);
-        }
-
-        .stats__marker span {
-          width: 0.3125rem;
-          height: 0.3125rem;
-          background: #13202c;
-        }
+        
 
         @media (max-width: 68.75rem) {
           .stats__header {

@@ -77,8 +77,9 @@ export function Hero() {
 
         .hero__title {
           margin: 0;
+          font-family: "Archivo Black", Arial, Helvetica, sans-serif;
           font-size: clamp(6.5rem, 9vw, 10.5rem);
-          font-weight: 700;
+          font-weight: 400;
           line-height: 0.86;
           letter-spacing: -0.045em;
         }
