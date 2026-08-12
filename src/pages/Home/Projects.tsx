@@ -94,7 +94,7 @@ export function Projects() {
           min-height: 100vh;
           min-height: 100svh;
           margin: 0;
-          padding: 56px 64px 72px;
+          padding: clamp(3.5rem, 6vh, 5rem) 0 clamp(5rem, 8vh, 7rem);
           overflow: hidden;
           background: #f5f5f5;
           color: #111111;
@@ -109,7 +109,10 @@ export function Projects() {
         }
 
         .projects__inner {
-          width: min(100%, 1320px);
+          width: min(
+            calc(100% - var(--page-gutter) * 2),
+            var(--content-max)
+          );
           margin: 0 auto;
         }
 
@@ -117,17 +120,17 @@ export function Projects() {
           display: flex;
           align-items: flex-end;
           justify-content: space-between;
-          gap: 48px;
-          min-height: 220px;
-          padding-bottom: 56px;
+          gap: clamp(3rem, 5vw, 6rem);
+          min-height: clamp(16rem, 30svh, 21rem);
+          padding-bottom: clamp(3rem, 5vh, 4.5rem);
           border-bottom: 1px solid #cfcfcf;
         }
 
         .projects__eyebrow {
-          margin: 0 0 14px;
+          margin: 0 0 clamp(1rem, 1.25vw, 1.5rem);
           color: #777777;
           font-family: Arial, Helvetica, sans-serif;
-          font-size: 11px;
+          font-size: clamp(0.6875rem, 0.62vw, 0.8125rem);
           font-weight: 700;
           line-height: 1;
           letter-spacing: 0.13em;
@@ -135,7 +138,7 @@ export function Projects() {
 
         .projects__title {
           margin: 0;
-          font-size: clamp(48px, 5.1vw, 72px);
+          font-size: clamp(4.5rem, 5vw, 6rem);
           font-weight: 750;
           line-height: 0.9;
           letter-spacing: -0.07em;
@@ -148,10 +151,10 @@ export function Projects() {
         .projects__allLink {
           display: flex;
           align-items: center;
-          gap: 24px;
-          padding: 14px 0;
+          gap: clamp(1.25rem, 1.8vw, 2rem);
+          padding: 1rem 0;
           color: #111111;
-          font-size: clamp(22px, 2.3vw, 34px);
+          font-size: clamp(1.5rem, 1.8vw, 2.25rem);
           font-weight: 500;
           line-height: 1;
           letter-spacing: -0.055em;
@@ -159,8 +162,8 @@ export function Projects() {
         }
 
         .projects__allLink svg {
-          width: 48px;
-          height: 20px;
+          width: clamp(3rem, 3vw, 3.75rem);
+          height: 1.375rem;
           overflow: visible;
           fill: none;
           stroke: currentColor;
@@ -182,24 +185,24 @@ export function Projects() {
         }
 
         .projects__catalog {
-          padding-top: 52px;
+          padding-top: clamp(3.5rem, 5vh, 5rem);
         }
 
         .projects__shelf {
           position: relative;
-          padding: 0 34px 44px;
+          padding: 0 clamp(2rem, 2.5vw, 2.75rem) 3rem;
         }
 
         .projects__shelf + .projects__shelf {
-          margin-top: 46px;
+          margin-top: clamp(3rem, 4vw, 4.5rem);
         }
 
         .projects__shelf::before {
           position: absolute;
           right: 0;
-          bottom: 31px;
+          bottom: 2rem;
           left: 0;
-          height: 13px;
+          height: 0.875rem;
           border-top: 1px solid #bdbdbd;
           background: linear-gradient(to bottom, #ffffff 0 45%, #d2d2d2 100%);
           box-shadow: 0 16px 24px rgba(0, 0, 0, 0.14);
@@ -211,7 +214,7 @@ export function Projects() {
           z-index: 1;
           display: grid;
           grid-template-columns: repeat(4, minmax(0, 1fr));
-          gap: clamp(22px, 3vw, 48px);
+          gap: clamp(1.5rem, 2.5vw, 3.25rem);
           align-items: end;
           margin: 0;
           padding: 0;
@@ -241,7 +244,7 @@ export function Projects() {
         .projects__card:focus-visible {
           z-index: 2;
           box-shadow: 0 22px 34px rgba(0, 0, 0, 0.26);
-          transform: translateY(-12px) scale(1.025);
+          transform: translateY(-0.75rem);
         }
 
         .projects__card > img {
@@ -259,16 +262,15 @@ export function Projects() {
         .projects__card:hover > img,
         .projects__card:focus-visible > img {
           filter: grayscale(1) contrast(1.12);
-          transform: scale(1.06);
         }
 
         .projects__fallback {
           position: absolute;
-          top: 18px;
-          left: 18px;
+          top: clamp(1.125rem, 1.4vw, 1.5rem);
+          left: clamp(1.125rem, 1.4vw, 1.5rem);
           color: rgba(0, 0, 0, 0.68);
           font-family: Arial, Helvetica, sans-serif;
-          font-size: clamp(38px, 4vw, 58px);
+          font-size: clamp(3rem, 3.6vw, 4.5rem);
           font-weight: 700;
           line-height: 1;
           letter-spacing: -0.07em;
@@ -280,7 +282,7 @@ export function Projects() {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          padding: 20px;
+          padding: clamp(1.25rem, 1.7vw, 2rem);
           background: rgba(0, 0, 0, 0.9);
           opacity: 0;
           transform: translateY(14px);
@@ -298,7 +300,7 @@ export function Projects() {
         .projects__overlayNumber {
           color: #bdbdbd;
           font-family: Arial, Helvetica, sans-serif;
-          font-size: 11px;
+          font-size: clamp(0.6875rem, 0.65vw, 0.8125rem);
           font-weight: 700;
           letter-spacing: 0.12em;
         }
@@ -306,13 +308,13 @@ export function Projects() {
         .projects__overlayContent {
           display: flex;
           flex-direction: column;
-          gap: 12px;
+          gap: 0.875rem;
           margin-top: auto;
-          padding: 24px 0;
+          padding: clamp(1.5rem, 2vw, 2.25rem) 0;
         }
 
         .projects__overlayContent strong {
-          font-size: clamp(19px, 1.7vw, 25px);
+          font-size: clamp(1.375rem, 1.6vw, 2rem);
           font-weight: 700;
           line-height: 1.15;
           letter-spacing: -0.055em;
@@ -321,7 +323,7 @@ export function Projects() {
 
         .projects__overlayContent > span {
           color: rgba(255, 255, 255, 0.72);
-          font-size: 13px;
+          font-size: clamp(0.875rem, 0.78vw, 1rem);
           font-weight: 400;
           line-height: 1.55;
           letter-spacing: -0.03em;
@@ -342,10 +344,10 @@ export function Projects() {
 
         .projects__caption {
           display: flex;
-          gap: 12px;
-          margin-top: 14px;
+          gap: 0.875rem;
+          margin-top: 1rem;
           color: #6f6f6f;
-          font-size: 10px;
+          font-size: clamp(0.75rem, 0.68vw, 0.875rem);
           font-weight: 650;
           line-height: 1.3;
           letter-spacing: -0.02em;
@@ -357,70 +359,76 @@ export function Projects() {
           letter-spacing: 0.06em;
         }
 
-        @media (max-width: 920px) {
+        @media (max-width: 68.75rem) {
           .projects {
-            padding: 44px 32px 56px;
+            padding-top: 3rem;
+            padding-bottom: 4rem;
           }
 
           .projects__header {
-            min-height: 200px;
-            padding-bottom: 44px;
+            min-height: 14rem;
+            padding-bottom: 3rem;
+          }
+
+          .projects__title {
+            font-size: clamp(4rem, 7vw, 5rem);
           }
 
           .projects__allLink {
-            gap: 14px;
-            font-size: 22px;
+            gap: 1rem;
+            font-size: 1.375rem;
           }
 
           .projects__allLink svg {
-            width: 38px;
+            width: 2.5rem;
           }
 
           .projects__shelf {
-            padding-right: 22px;
-            padding-left: 22px;
+            padding-right: 1.25rem;
+            padding-left: 1.25rem;
           }
 
           .projects__row {
-            gap: 22px;
+            gap: 1.25rem;
           }
 
           .projects__overlay {
-            padding: 16px;
+            padding: 1rem;
           }
         }
 
-        @media (max-width: 660px) {
+        @media (max-width: 56.25rem) {
           .projects {
-            padding: 36px 20px 48px;
+            padding-top: 3rem;
+            padding-bottom: 4rem;
             overflow: visible;
           }
 
           .projects__header {
             display: block;
             min-height: 0;
-            padding-bottom: 40px;
+            padding-bottom: 2.5rem;
           }
 
           .projects__title {
-            font-size: clamp(48px, 15vw, 64px);
+            font-size: clamp(3.5rem, 14vw, 4.5rem);
           }
 
           .projects__allLink {
             justify-content: space-between;
             width: 100%;
-            margin-top: 46px;
-            font-size: 22px;
+            margin-top: 2.75rem;
+            font-size: 1.25rem;
           }
 
           .projects__catalog {
-            padding-top: 42px;
+            padding-top: 2.75rem;
           }
 
           .projects__shelf {
-            margin-right: -20px;
-            margin-left: -20px;
-            padding: 0 20px 43px;
+            margin-right: calc(var(--page-gutter) * -1);
+            margin-left: calc(var(--page-gutter) * -1);
+            padding: 0 var(--page-gutter) 2.75rem;
             overflow-x: auto;
             scrollbar-width: none;
           }
@@ -430,20 +438,20 @@ export function Projects() {
           }
 
           .projects__shelf + .projects__shelf {
-            margin-top: 36px;
+            margin-top: 2.5rem;
           }
 
           .projects__shelf::before {
-            right: 20px;
-            left: 20px;
+            right: var(--page-gutter);
+            left: var(--page-gutter);
           }
 
           .projects__row {
             grid-template-columns: none;
-            grid-auto-columns: minmax(205px, 62vw);
+            grid-auto-columns: minmax(14rem, 68vw);
             grid-auto-flow: column;
             width: max-content;
-            padding-right: 20px;
+            padding-right: var(--page-gutter);
           }
 
           .projects__card {

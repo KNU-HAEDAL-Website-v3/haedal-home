@@ -30,4 +30,36 @@ export const clubStats = [
     description: "함께 공부하고 프로젝트를 만드는 공간",
     accent: true
   },
+  {
+    id: "hackathon",
+    label: "해커톤에서 만들어진 작품 수",
+    value: 110,
+    unit: "개",
+    description: "해커톤",
+    accent: true
+  },
+  {
+    id: "startat",
+    label: "시작년도",
+    value: 2026,
+    unit: "년",
+    description: "시작년도",
+    accent: true
+  },
+   {
+    id: "bootcamp",
+    label: "개설된 부트캠프 수",
+    value: 7,
+    unit: "개",
+    description: "부캠",
+    accent: true
+  },
+  {
+    id: "server",
+    label: "보유한 서버 컴퓨터 수",
+    value: 3,
+    unit: "대",
+    description: "컴퓨터",
+    accent: true
+  },
 ] as const satisfies readonly ClubStat[];

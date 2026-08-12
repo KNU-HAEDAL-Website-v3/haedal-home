@@ -1,0 +1,49 @@
+:root {
+  --page-gutter: clamp(1.25rem, 3vw, 3rem);
+  --content-max: 90rem;
+  --section-space-block: clamp(2.5rem, 5vh, 4.5rem);
+  color: #11171c;
+  background: #ffffff;
+  font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", Arial,
+    Helvetica, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  min-width: 20rem;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 20rem;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+#root,
+.home {
+  width: 100%;
+}
+
+.home {
+  overflow: clip;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -14,7 +14,7 @@ import { Join } from "./Join";
 
 export function Home() {
   return (
-    <main>
+    <main className="home">
       <Hero />
       <Stats />
       <Activities />

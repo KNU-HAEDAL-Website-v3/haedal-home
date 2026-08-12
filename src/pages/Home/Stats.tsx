@@ -42,11 +42,12 @@ export function Stats() {
 
       <style>{`
         .stats {
+          display: flex;
           box-sizing: border-box;
           min-height: 100vh;
           min-height: 100svh;
           margin: 0;
-          padding: 0 24px 32px;
+          padding: 0 0 clamp(2rem, 4vh, 3rem);
           overflow: hidden;
           border-top: 4px solid #858585;
           background: #ffffff;
@@ -64,23 +65,25 @@ export function Stats() {
         .stats__inner {
           display: flex;
           flex-direction: column;
-          width: min(100%, 1440px);
-          min-height: calc(100vh - 36px);
-          min-height: calc(100svh - 36px);
+          width: min(
+            calc(100% - var(--page-gutter) * 2),
+            var(--content-max)
+          );
+          min-height: calc(100svh - clamp(2rem, 4vh, 3rem) - 4px);
           margin: 0 auto;
         }
 
         .stats__header {
           display: flex;
           align-items: flex-start;
-          min-height: clamp(230px, 34vh, 330px);
-          padding-top: clamp(44px, 6vh, 72px);
+          min-height: clamp(13rem, 28svh, 19rem);
+          padding-top: clamp(3rem, 7vh, 5rem);
         }
 
         .stats__title {
-          max-width: 550px;
+          max-width: 38rem;
           margin: 0;
-          font-size: clamp(20px, 1.75vw, 27px);
+          font-size: clamp(1.5rem, 1.5vw, 2rem);
           font-weight: 650;
           line-height: 1.32;
           letter-spacing: -0.045em;
@@ -99,20 +102,20 @@ export function Stats() {
 
         .stats__row {
           display: grid;
-          flex: 1 0 112px;
-          grid-template-columns: minmax(190px, 29%) minmax(0, 1fr);
+          flex: 1 0 11rem;
+          grid-template-columns: minmax(14rem, 28%) minmax(0, 1fr);
           align-items: center;
-          min-height: 112px;
+          min-height: 11rem;
           border-bottom: 1px solid #e3e6e7;
         }
 
         .stats__label {
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: clamp(0.625rem, 0.8vw, 0.875rem);
           margin: 0;
           color: #13202c;
-          font-size: 11px;
+          font-size: clamp(0.875rem, 0.85vw, 1.125rem);
           font-weight: 700;
           line-height: 1.35;
           letter-spacing: -0.02em;
@@ -120,8 +123,8 @@ export function Stats() {
         }
 
         .stats__status {
-          width: 5px;
-          height: 5px;
+          width: 0.375rem;
+          height: 0.375rem;
           background: transparent;
         }
 
@@ -137,7 +140,7 @@ export function Stats() {
           min-width: 0;
           margin: 0;
           font-family: Arial, Helvetica, sans-serif;
-          font-size: clamp(64px, 6.3vw, 92px);
+          font-size: clamp(5.5rem, 10vw, 12rem);
           font-weight: 400;
           line-height: 0.88;
           letter-spacing: -0.065em;
@@ -148,7 +151,7 @@ export function Stats() {
           color: #13202c;
           font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo",
             Arial, sans-serif;
-          font-size: 0.35em;
+          font-size: 0.25em;
           font-weight: 500;
           line-height: 1;
           letter-spacing: -0.06em;
@@ -157,8 +160,8 @@ export function Stats() {
         .stats__marker {
           display: inline-grid;
           place-items: center;
-          width: 22px;
-          height: 22px;
+          width: clamp(1.5rem, 1.8vw, 2.125rem);
+          height: clamp(1.5rem, 1.8vw, 2.125rem);
           margin-right: 0.2em;
           border-radius: 5px;
           background: #f0f2f2;
@@ -166,84 +169,79 @@ export function Stats() {
         }
 
         .stats__marker span {
-          width: 4px;
-          height: 4px;
+          width: 0.3125rem;
+          height: 0.3125rem;
           background: #13202c;
         }
 
-        @media (max-width: 800px) {
-          .stats {
-            padding-right: 20px;
-            padding-left: 20px;
-          }
-
+        @media (max-width: 68.75rem) {
           .stats__header {
-            min-height: 240px;
-            padding-top: 48px;
+            min-height: clamp(12rem, 28svh, 14rem);
+            padding-top: clamp(2.5rem, 6vh, 3.5rem);
           }
 
           .stats__title {
-            max-width: 440px;
-            font-size: clamp(19px, 3.2vw, 24px);
+            max-width: 30rem;
+            font-size: clamp(1.375rem, 2.4vw, 1.75rem);
           }
 
           .stats__row {
-            grid-template-columns: minmax(130px, 32%) minmax(0, 1fr);
+            grid-template-columns: minmax(10rem, 30%) minmax(0, 1fr);
           }
 
           .stats__value {
-            font-size: clamp(56px, 10vw, 76px);
+            font-size: clamp(5rem, 10vw, 7.5rem);
           }
 
           .stats__marker {
-            width: 18px;
-            height: 18px;
+            width: 1.5rem;
+            height: 1.5rem;
           }
         }
 
-        @media (max-width: 520px) {
+        @media (max-width: 32.5rem) {
           .stats {
             min-height: 100svh;
-            padding: 0 16px 24px;
+            padding-bottom: 1.5rem;
           }
 
           .stats__inner {
-            min-height: calc(100svh - 28px);
+            min-height: calc(100svh - 1.75rem);
           }
 
           .stats__header {
-            min-height: 220px;
-            padding-top: 40px;
+            min-height: clamp(10.5rem, 24svh, 12.5rem);
+            padding-top: 2.5rem;
           }
 
           .stats__title {
-            max-width: 340px;
-            font-size: 19px;
+            max-width: 21rem;
+            font-size: 1.25rem;
           }
 
           .stats__row {
             display: flex;
-            flex: 1 0 150px;
+            flex: 1 0 9.5rem;
             flex-direction: column;
             align-items: stretch;
             justify-content: center;
-            min-height: 150px;
-            padding: 18px 0;
+            min-height: 9.5rem;
+            padding: 1.125rem 0;
           }
 
           .stats__label {
-            font-size: 10px;
+            font-size: 0.75rem;
           }
 
           .stats__value {
-            margin-top: 24px;
-            font-size: clamp(58px, 19vw, 78px);
+            margin-top: 1.5rem;
+            font-size: clamp(4rem, 20vw, 5.25rem);
           }
 
           .stats__marker {
-            width: 16px;
-            height: 16px;
-            border-radius: 4px;
+            width: 1.125rem;
+            height: 1.125rem;
+            border-radius: 0.25rem;
           }
         }
       `}</style>

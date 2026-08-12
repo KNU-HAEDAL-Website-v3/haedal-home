@@ -42,17 +42,14 @@ export function Hero() {
       </div>
 
       <style>{`
-        html,
-        body {
-          margin: 0;
-        }
-
         .hero {
+          display: flex;
           box-sizing: border-box;
           min-height: 100vh;
           min-height: 100svh;
           margin: 0;
-          padding: 48px 16px 16px;
+          padding: clamp(2.5rem, 5vh, 4rem) clamp(1rem, 1.5vw, 2rem)
+            clamp(1.5rem, 4vh, 3rem);
           overflow: hidden;
           background: #ffffff;
           color: #000000;
@@ -67,12 +64,11 @@ export function Hero() {
 
         .hero__layout {
           display: grid;
-          grid-template-columns: minmax(650px, 1fr) minmax(0, 0.8fr);
-          gap: 48px;
+          flex: 1;
+          grid-template-columns: minmax(0, 1.22fr) minmax(22rem, 0.78fr);
+          gap: clamp(2.5rem, 4vw, 5rem);
           align-items: end;
           width: 100%;
-          min-height: calc(100vh - 64px);
-          min-height: calc(100svh - 64px);
         }
 
         .hero__copy {
@@ -81,10 +77,10 @@ export function Hero() {
 
         .hero__title {
           margin: 0;
-          font-size: clamp(100px, 9vw, 168px);
+          font-size: clamp(6.5rem, 9vw, 10.5rem);
           font-weight: 700;
           line-height: 0.86;
-          letter-spacing: -6px;
+          letter-spacing: -0.045em;
         }
 
         .hero__titleLine {
@@ -97,19 +93,19 @@ export function Hero() {
         }
 
         .hero__description {
-          margin: 10px 0 0;
+          margin: 0.75rem 0 0;
           color: #858482;
           font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo",
             system-ui, sans-serif;
-          font-size: 18px;
+          font-size: clamp(1rem, 0.9rem + 0.2vw, 1.25rem);
           font-weight: 400;
           line-height: 1.5;
           letter-spacing: -0.45px;
         }
 
         .hero__trail {
-          width: calc(100% - 15px);
-          margin-bottom: 60px;
+          width: 100%;
+          margin-bottom: clamp(1rem, 5vh, 3.75rem);
         }
 
         .hero__arrow {
@@ -132,7 +128,7 @@ export function Hero() {
         .hero__trailText {
           margin: 0;
           color: #858482;
-          font-size: 24px;
+          font-size: clamp(1.125rem, 1.25vw, 1.5rem);
           font-weight: 400;
           line-height: 1;
           letter-spacing: -0.35px;
@@ -140,48 +136,41 @@ export function Hero() {
           white-space: nowrap;
         }
 
-        @media (max-width: 1100px) {
-          .hero {
-            padding-right: 16px;
-            padding-left: 16px;
-          }
-
+        @media (max-width: 68.75rem) {
           .hero__layout {
-            grid-template-columns: minmax(400px, 1fr) minmax(0, 1fr);
-            gap: 32px;
+            grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+            gap: 2rem;
           }
 
           .hero__title {
-            font-size: clamp(64px, 8vw, 92px);
-            letter-spacing: -4.5px;
+            font-size: clamp(5rem, 8.5vw, 6.5rem);
           }
 
           .hero__trailText {
-            font-size: 19px;
+            font-size: clamp(1rem, 1.8vw, 1.25rem);
           }
         }
 
-        @media (max-width: 820px) {
+        @media (max-width: 51.25rem) {
           .hero {
             min-height: 100svh;
-            padding: 48px 20px 24px;
+            padding-top: clamp(2.5rem, 7vh, 4rem);
+            padding-bottom: 1.5rem;
           }
 
           .hero__layout {
             grid-template-columns: 1fr;
-            gap: 44px;
+            gap: clamp(2rem, 7vh, 3.5rem);
             align-content: end;
-            min-height: calc(100svh - 72px);
           }
 
           .hero__title {
-            font-size: clamp(44px, 10.5vw, 60px);
-            letter-spacing: -2px;
+            font-size: clamp(3.5rem, 10.5vw, 5rem);
           }
 
           .hero__description {
             margin-top: 10px;
-            font-size: 16px;
+            font-size: 1rem;
           }
 
           .hero__trail {
@@ -190,24 +179,23 @@ export function Hero() {
           }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 30rem) {
           .hero {
-            padding: 32px 12px 16px;
+            padding-top: 2rem;
+            padding-bottom: 1rem;
           }
 
           .hero__layout {
-            gap: 36px;
-            min-height: calc(100svh - 48px);
+            gap: 2.25rem;
           }
 
           .hero__title {
-            font-size: clamp(38px, 11.7vw, 50px);
-            letter-spacing: -1.6px;
+            font-size: clamp(2.75rem, 12.2vw, 3.25rem);
           }
 
           .hero__trailText {
             overflow-wrap: anywhere;
-            font-size: 15px;
+            font-size: 0.9375rem;
             line-height: 1.35;
             white-space: normal;
           }
