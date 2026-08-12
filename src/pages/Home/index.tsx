@@ -7,7 +7,7 @@ import { Hero } from "./Hero";
 import { Highlights } from "./Highlights";
 import { Activities } from "./Activities";
 import { Projects } from "./Projects";
-import { Schedule } from "./Schedule";
+import Schedule  from "./Schedule";
 import { Stats } from "./Stats";
 import { Contributors } from "./Contributors";
 import { Join } from "./Join";
