@@ -62,4 +62,12 @@ export const clubStats = [
     description: "컴퓨터",
     accent: true
   },
+  {
+    id: "server",
+    label: "보유한 아두이노 수",
+    value: 10,
+    unit: "개",
+    description: "아두이노",
+    accent: true
+  },
 ] as const satisfies readonly ClubStat[];

@@ -11,6 +11,7 @@ import { Schedule } from "./Schedule";
 import { Stats } from "./Stats";
 import { Contributors } from "./Contributors";
 import { Join } from "./Join";
+import { Tracks } from "./Tracks";
 
 export function Home() {
   return (
@@ -18,6 +19,7 @@ export function Home() {
       <Hero />
       <Stats />
       <Activities />
+      <Tracks />
       <Projects />
       <Highlights />
       <Schedule />

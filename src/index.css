@@ -2,10 +2,11 @@
   --page-gutter: clamp(1.25rem, 3vw, 3rem);
   --content-max: 90rem;
   --section-space-block: clamp(2.5rem, 5vh, 4.5rem);
+  --font-site: Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
+    "Noto Sans KR", "Segoe UI", sans-serif;
   color: #11171c;
   background: #ffffff;
-  font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", Arial,
-    Helvetica, sans-serif;
+  font-family: var(--font-site);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
@@ -23,7 +24,14 @@ body {
 }
 
 button,
-a {
+a,
+input,
+textarea,
+select,
+pre,
+code,
+kbd,
+samp {
   font: inherit;
 }
 

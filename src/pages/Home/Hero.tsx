@@ -96,8 +96,7 @@ export function Hero() {
         .hero__description {
           margin: 0.75rem 0 0;
           color: #858482;
-          font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo",
-            system-ui, sans-serif;
+          font-family: inherit;
           font-size: clamp(1rem, 0.9rem + 0.2vw, 1.25rem);
           font-weight: 400;
           line-height: 1.5;

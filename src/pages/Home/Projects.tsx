@@ -98,8 +98,7 @@ export function Projects() {
           overflow: hidden;
           background: #f5f5f5;
           color: #111111;
-          font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo",
-            Arial, Helvetica, sans-serif;
+          font-family: var(--font-site);
         }
 
         .projects *,
@@ -129,7 +128,7 @@ export function Projects() {
         .projects__eyebrow {
           margin: 0 0 clamp(1rem, 1.25vw, 1.5rem);
           color: #777777;
-          font-family: Arial, Helvetica, sans-serif;
+          font-family: var(--font-site);
           font-size: clamp(0.6875rem, 0.62vw, 0.8125rem);
           font-weight: 700;
           line-height: 1;
@@ -269,7 +268,7 @@ export function Projects() {
           top: clamp(1.125rem, 1.4vw, 1.5rem);
           left: clamp(1.125rem, 1.4vw, 1.5rem);
           color: rgba(0, 0, 0, 0.68);
-          font-family: Arial, Helvetica, sans-serif;
+          font-family: var(--font-site);
           font-size: clamp(3rem, 3.6vw, 4.5rem);
           font-weight: 700;
           line-height: 1;
@@ -299,7 +298,7 @@ export function Projects() {
 
         .projects__overlayNumber {
           color: #bdbdbd;
-          font-family: Arial, Helvetica, sans-serif;
+          font-family: var(--font-site);
           font-size: clamp(0.6875rem, 0.65vw, 0.8125rem);
           font-weight: 700;
           letter-spacing: 0.12em;
@@ -355,7 +354,7 @@ export function Projects() {
 
         .projects__caption span:first-child {
           color: #111111;
-          font-family: Arial, Helvetica, sans-serif;
+          font-family: var(--font-site);
           letter-spacing: 0.06em;
         }
 

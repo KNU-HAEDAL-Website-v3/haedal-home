@@ -115,8 +115,7 @@ export function Activities() {
           border-top: 4px solid #858887;
           background: #f4f5f2;
           color: #11171c;
-          font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo",
-            Arial, Helvetica, sans-serif;
+          font-family: var(--font-site);
         }
 
         .activities *,
@@ -142,7 +141,7 @@ export function Activities() {
         .activities__label,
         .activities__sample figcaption,
         .activities__curriculumHeader {
-          font-family: Arial, Helvetica, sans-serif;
+          font-family: var(--font-site);
           font-size: clamp(0.625rem, 0.55rem + 0.15vw, 0.75rem);
           font-weight: 700;
           line-height: 1;
@@ -252,7 +251,7 @@ export function Activities() {
 
         .activities__tabNumber {
           color: #a2a8a8;
-          font-family: Arial, Helvetica, sans-serif;
+          font-family: var(--font-site);
           font-size: clamp(0.6875rem, 0.62vw, 0.8125rem);
           letter-spacing: 0.07em;
         }
@@ -341,7 +340,7 @@ export function Activities() {
 
         .activities__nameLine h3 {
           margin: 0;
-          font-family: Georgia, "Times New Roman", serif;
+          font-family: var(--font-site);
           font-size: clamp(3.25rem, 4.2vw, 4.75rem);
           font-weight: 600;
           line-height: 1;
@@ -370,7 +369,7 @@ export function Activities() {
 
         .activities__count {
           margin: 0.25rem 0 0;
-          font-family: Arial, Helvetica, sans-serif;
+          font-family: var(--font-site);
           font-size: clamp(1.5rem, 1.5vw, 2rem);
           line-height: 1;
           letter-spacing: -0.04em;
@@ -400,7 +399,7 @@ export function Activities() {
         .activities__sample pre {
           margin: 0;
           overflow-x: auto;
-          font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+          font-family: var(--font-site);
           font-size: clamp(0.9375rem, 0.9vw, 1.125rem);
           line-height: 1.65;
           tab-size: 2;
@@ -448,7 +447,7 @@ export function Activities() {
 
         .activities__period {
           color: #a1a7a6;
-          font-family: Arial, Helvetica, sans-serif;
+          font-family: var(--font-site);
           font-size: clamp(0.8125rem, 0.72rem + 0.1vw, 0.9375rem);
           letter-spacing: 0.08em;
         }

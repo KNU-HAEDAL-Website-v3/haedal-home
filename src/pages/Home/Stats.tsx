@@ -52,8 +52,7 @@ export function Stats() {
           border-top: 4px solid #858585;
           background: #ffffff;
           color: #06111e;
-          font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo",
-            Arial, Helvetica, sans-serif;
+          font-family: var(--font-site);
         }
 
         .stats *,
@@ -139,7 +138,7 @@ export function Stats() {
           gap: 0.08em;
           min-width: 0;
           margin: 0;
-          font-family: Arial, Helvetica, sans-serif;
+          font-family: var(--font-site);
           font-size: clamp(5.5rem, 10vw, 12rem);
           font-weight: 400;
           line-height: 0.88;
@@ -149,15 +148,14 @@ export function Stats() {
 
         .stats__unit {
           color: #13202c;
-          font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo",
-            Arial, sans-serif;
+          font-family: var(--font-site);
           font-size: 0.25em;
           font-weight: 500;
           line-height: 1;
           letter-spacing: -0.06em;
         }
 
-        
+
 
         @media (max-width: 68.75rem) {
           .stats__header {
