@@ -4,24 +4,33 @@
 1. nvm 설치
 2. nvm use 혹은 nvm install
 
+---
+
 ### 레포지토리 구조
 
 <img width="408" height="604" alt="image" src="https://github.com/user-attachments/assets/f09d2aa6-99c2-4def-8197-398f04c75c60" />
-여기서 다 필요없고 /src 만 쓰면 됨 (나머지는 다 설정파일)
+
+- 여기서 다 필요없고 /src 만 쓰면 됨 (나머지는 다 설정파일)
+
+---
 
 <img width="401" height="386" alt="image" src="https://github.com/user-attachments/assets/03dbe782-0366-4a8f-a6f0-4f3fccfadabd" />
-assets/ : 이미지 넣어놓는 곳
-data/ : 웹사이트에서 쓸 정보를 모아놓는 곳
-layouts/ : 공통 헤더, 푸터, 뼈대
-pages/ : 한 페이지 기준으로 나눠놓음
-pages/Home : 웹사이트 드가면 젤 처음 보이는 그 페이지 ㅇㅇㅇㅇ
-App.css, App.tsx, index.css, main.tsx : 일단 놔둬봅시다,,,
 
-<img width="381" height="463" alt="image" src="https://github.com/user-attachments/assets/d584839d-a4f7-4f2d-a422-43a1376022a9" />
-메인페이지를 여러 섹션으로 나눠서 작업하고
-index.tsx에서 조립만 합니다
+- assets/ : 이미지 넣어놓는 곳
+- data/ : 웹사이트에서 쓸 정보를 모아놓는 곳
+- layouts/ : 공통 헤더, 푸터, 뼈대
+- pages/ : 한 페이지 기준으로 나눠놓음
+- pages/Home : 웹사이트 드가면 젤 처음 보이는 그 페이지 ㅇㅇㅇㅇ
+- App.css, App.tsx, index.css, main.tsx : 일단 놔둬봅시다,,,
 
+---
 
+- <img width="381" height="463" alt="image" src="https://github.com/user-attachments/assets/d584839d-a4f7-4f2d-a422-43a1376022a9" />
+
+- 메인페이지를 여러 섹션으로 나눠서 작업하고
+- index.tsx에서 조립만 합니다
+
+---
 
 
 
