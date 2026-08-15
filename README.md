@@ -32,7 +32,18 @@
 
 ---
 
+- <img width="718" height="482" alt="image" src="https://github.com/user-attachments/assets/b42a8059-c63a-461e-a67c-804cae68b6b8" />
 
+- 이때 각 섹션의 내용은
+
+```
+export function 파일명() {
+  return (
+          )
+}
+```
+
+- 형태로 해야함 (일단 index.tsx에서 조립할 때 저런 형태를 전제로 해서 만듬 -> 추후에 구조 변경 해도 됨!)
 
 
 
