@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { bootcamps } from "../../data/bootcamp.data";
 
 function formatIndex(index: number) {
@@ -6,21 +6,48 @@ function formatIndex(index: number) {
 }
 
 export function Activities() {
+  const sectionRef = useRef<HTMLElement>(null);
   const [activeSlug, setActiveSlug] = useState(bootcamps[0].slug);
   const activeIndex = bootcamps.findIndex(
     (bootcamp) => bootcamp.slug === activeSlug,
   );
   const currentIndex = activeIndex < 0 ? 0 : activeIndex;
   const activeBootcamp = bootcamps[currentIndex];
+  const mastheadRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const masthead = mastheadRef.current;
+    if (!masthead) return;
+
+    const target = masthead.querySelector(".scroll-highlight-wrapper");
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        target.classList.toggle("is-visible", entry.isIntersecting);
+      },
+      {
+      threshold: 0.25,
+      },
+    );
+
+    observer.observe(masthead);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="activities" aria-labelledby="activities-title">
+    <section
+      ref={sectionRef}
+      className="activities"
+      aria-labelledby="activities-title"
+    >
       <div className="activities__inner">
-        <header className="activities__masthead">
+        <header className="activities__masthead" ref={mastheadRef}>
           <h2 id="activities-title" className="activities__title">
-            <span>해달 그리고</span>
-            <span className="activities__titleLine">
-              <em>부트캠프</em>
+            <span className="scroll-highlight-wrapper">
+             해달 그리고
+             <br />
+             <em className="activities_titleLine">부트캠프</em>
             </span>
           </h2>
         </header>
@@ -106,15 +133,56 @@ export function Activities() {
       </div>
 
       <style>{`
+        .scroll-highlight-wrapper {
+          position: relative;
+          display: inline-block;
+          isolation: isolate;
+        }
+
+        .scroll-highlight-wrapper::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(calc(-50% - 100px), 60px) scale(0);
+          width: 3.5em;
+          height: 3.5em;
+          background-color: #ffe500;
+          border-radius: 50%;
+          z-index: -1;
+          opacity: 0;
+          background: radial-gradient(
+          circle,
+          rgba(255, 229, 0, 0.95) 0%,
+          rgba(255, 229, 0, 0.55) 35%,
+          rgba(255, 229, 0, 0.15) 60%,
+          rgba(255, 229, 0, 0) 75%);
+          transition: transform 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+          }
+
+        .scroll-highlight-wrapper.is-visible::after {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .scroll-highlight-wrapper::after {
+          transition: none;
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+          }
+        }
+
+
         .activities {
           box-sizing: border-box;
           min-height: 100vh;
           min-height: 100svh;
           margin: 0;
           padding: clamp(2.5rem, 5vh, 4rem) 0 clamp(4rem, 7vh, 6rem);
-          border-top: 4px solid #858887;
-          background: #f4f5f2;
-          color: #11171c;
+          border-top: 4px solid #f2efe9;
+          background: #fffee0;
+          color: #11171c;  
           font-family: var(--font-site);
         }
 
@@ -134,11 +202,9 @@ export function Activities() {
 
         .activities__masthead {
           padding-bottom: clamp(2.5rem, 4.5vh, 3.5rem);
-          border-bottom: 1px solid #ced2d0;
+          border-bottom: 1px solid #f2efe9;
         }
 
-        .activities__eyebrow,
-        .activities__label,
         .activities__sample figcaption,
         .activities__curriculumHeader {
           font-family: var(--font-site);
@@ -146,11 +212,6 @@ export function Activities() {
           font-weight: 700;
           line-height: 1;
           letter-spacing: 0.15em;
-        }
-
-        .activities__eyebrow {
-          margin: 0 0 clamp(1rem, 1.3vw, 1.5rem);
-          color: #808786;
         }
 
         .activities__title {
@@ -166,6 +227,11 @@ export function Activities() {
           display: block;
         }
 
+        .activities__title > span.scroll-highlight-wrapper {
+          display: inline-block;
+          width: fit-content;
+        }
+
         .activities__titleLine {
           white-space: nowrap;
         }
@@ -175,13 +241,6 @@ export function Activities() {
           font-style: normal;
         }
 
-        .activities__introduction {
-          margin: clamp(1.25rem, 1.5vw, 1.75rem) 0 0;
-          color: #61696a;
-          font-size: clamp(0.9375rem, 0.82rem + 0.25vw, 1.125rem);
-          line-height: 1.6;
-          letter-spacing: -0.025em;
-        }
 
         .activities__catalog {
           display: grid;
@@ -190,10 +249,6 @@ export function Activities() {
           padding-top: clamp(2.5rem, 4vh, 3.5rem);
         }
 
-        .activities__label {
-          margin: 0 0 clamp(1rem, 1.25vw, 1.375rem);
-          color: #969c9b;
-        }
 
         .activities__tabs {
           margin: 0;
@@ -201,7 +256,6 @@ export function Activities() {
           border-bottom: 1px solid #cbd0cd;
           list-style: none;
         }
-
         .activities__tab {
           position: relative;
           display: grid;
@@ -224,15 +278,14 @@ export function Activities() {
           position: absolute;
           inset: 0 auto 0 0;
           width: 4px;
-          background: #f4f5f2;
+          background: #fffef5;
           content: "";
           opacity: 0;
           transition: opacity 160ms ease;
         }
 
         .activities__tab:hover {
-          background: #e9ebe8;
-          color: #11171c;
+          background: transparent;
         }
 
         .activities__tab:focus-visible {
@@ -241,8 +294,8 @@ export function Activities() {
         }
 
         .activities__tab.is-active {
-          background: #11171c;
-          color: #f4f5f2;
+          background: #fff3b0;
+          color: #9ca3af;
         }
 
         .activities__tab.is-active::before {
@@ -250,10 +303,47 @@ export function Activities() {
         }
 
         .activities__tabNumber {
-          color: #a2a8a8;
+          position: relative;
+          isolation: isolate;
+          z-index: 0;
+          transition: color 0.3s ease 0.15s;
+          color: #9ca3af;
           font-family: var(--font-site);
           font-size: clamp(0.6875rem, 0.62vw, 0.8125rem);
           letter-spacing: 0.07em;
+        }
+        .activities__tabNumber::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 10%;
+          transform: translate(calc(-50% - 40px), 20px) scale(0);
+          width: 3.5em;
+          height: 3.5em;
+          border-radius: 50%;
+          z-index: -1;
+          opacity: 0;
+          pointer-events: none;
+          background: radial-gradient(
+          circle,
+          rgba(255,229,0,0.95) 0%,
+          rgba(255,229,0,0.55) 35%,
+          rgba(255,229,0,0.15) 60%,
+          rgba(255,229,0,0) 75%);
+        transition:
+        transform 0.7s cubic-bezier(0.175,0.885,0.32,1.275),
+        opacity 0.4s ease;
+      }
+        .activities__tab:hover .activities__tabNumber::after{
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+        }
+        .activities__tab:hover .activities__tabNumber {
+          color: #4b5563;
+        }
+        .activities__tab:hover .activities__tabName {
+          color: #30393d;
+          transition: color 0.3s ease 0.15s;
         }
 
         .activities__tab.is-active .activities__tabNumber {
@@ -302,7 +392,7 @@ export function Activities() {
           min-width: 0;
           overflow-y: auto;
           overscroll-behavior-y: contain;
-          scrollbar-color: #7e8583 transparent;
+          scrollbar-color: #ffe3b0 transparent;
           scrollbar-gutter: stable;
           scrollbar-width: thin;
         }
@@ -321,7 +411,7 @@ export function Activities() {
         }
 
         .activities__panel:focus-visible {
-          outline: 2px solid #11171c;
+          outline: 2px solid #ffe150;
           outline-offset: 3px;
         }
 
@@ -386,13 +476,13 @@ export function Activities() {
           padding: clamp(1.75rem, 2vw, 2.25rem);
           overflow: hidden;
           border-radius: 6px;
-          background: #12171d;
-          color: #d7e1e6;
+          background: #fff3b0;
+          color: #4b5563
         }
 
         .activities__sample figcaption {
           margin: 0 0 clamp(1.25rem, 1.5vw, 1.75rem);
-          color: #748089;
+          color: #111827;
           font-size: clamp(0.75rem, 0.68rem + 0.1vw, 0.875rem);
         }
 
@@ -557,9 +647,9 @@ export function Activities() {
           }
 
           .activities__tab.is-active {
-            border-color: #11171c;
-            background: #11171c;
-            color: #f4f5f2;
+            border-color: #d1d5db;
+            background: #fff3b0;
+            color: #111827;
           }
 
           .activities__panelHeader {
